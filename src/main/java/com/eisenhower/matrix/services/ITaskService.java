@@ -8,18 +8,21 @@ public interface ITaskService {
 
 	//service to create,read, update and delete tasks
 	
-	//create service
+	//create task
 	public String createTask(Task task);
 	
-	//update service
-	public String updateTask();
-	
 	//read task service (find all)
-	public List<Task> getTaskList();
+	public List<Task> findAll();
 	
 	//read taskList (find by id)
 	public Task findTaskById(Integer id);
+		
+	//update service
+	public String updateTask(Task task);
 	
 	//delete service
-	public String deleteTask();
+	public String deleteTask(Integer id);
+	
+	//finished task
+	public String isTaskDone(Integer theTaskId);
 }

@@ -23,14 +23,14 @@ public class TaskServiceImpl implements ITaskService {
 
 	// read (find all)
 	@Override
-	public List<Task> getTaskList() {
+	public List<Task> findAll() {
 		return taskList;
 	}
 
 	// read (find by id)
 	@Override
 	public Task findTaskById(Integer id) {
-		List<Task> tempList = getTaskList();
+		List<Task> tempList = findAll();
 		for (Task task : tempList) {
 			if (task.getIdTask() == id) {
 				return task;
@@ -41,15 +41,44 @@ public class TaskServiceImpl implements ITaskService {
 
 	// update
 	@Override
-	public String updateTask() {
-		// TODO Auto-generated method stub
+	public String updateTask(Task theUpdatedTask) {
+		int aux = 0;
+		for (Task temp : taskList) {
+			if (temp.getIdTask() == theUpdatedTask.getIdTask()) {
+				taskList.set(aux, theUpdatedTask);
+				return "task updated";
+			}
+			aux++;
+		}
+
+		return null;
+	}
+	
+	@Override
+	public String isTaskDone(Integer theTaskId) {
+		int aux = 0;
+		for(Task temporalTask : taskList) {
+			if(temporalTask.getIdTask() == theTaskId) {
+				Task tempTask = taskList.get(aux);
+				tempTask.setTaskDone(true);
+				return updateTask(tempTask);
+			}
+			aux++;
+		}
 		return null;
 	}
 
 	// delete
 	@Override
-	public String deleteTask() {
-		// TODO Auto-generated method stub
+	public String deleteTask(Integer id) {
+		int aux = 0;
+		for (Task temp : taskList) {
+			if (temp.getIdTask() == id) {
+				taskList.remove(aux);
+				return "Task deleted";
+			}
+			aux++;
+		}
 		return null;
 	}
 
