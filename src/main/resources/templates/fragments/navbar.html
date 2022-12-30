@@ -1,0 +1,44 @@
+<!-- navbar -->
+<nav th:fragment="navbar-principal" class="nav navbar navbar-expand-md navbar-dark">
+    <a class="navbar-brand" th:href="@{/}">[[${thePageTitle}]]</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link active" th:href="@{/}">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownVacante" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Vacantes
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownVacante">
+                    <a class="dropdown-item" th:href="@{/vacantes/crear-vacante}">Crear Vacante</a>
+                    <a class="dropdown-item" th:href="@{/lista-vacantes}">Listar Vacantes</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategoria" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categorias
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownCategoria">
+                    <a class="dropdown-item" th:href="@{/categoria/create}">Crear Categoria</a>
+                    <a class="dropdown-item" th:href="@{/categoria/index}">Listar Categorias</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownReclutador" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Reclutadores
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownReclutador">
+                    <a class="dropdown-item" th:href="@{/}">Crear Reclutador</a>
+                    <a class="dropdown-item" th:href="@{/nuestros-reclutadores}">Listar Reclutadores</a>
+                </div>
+            </li>
+        </ul>
+        <a class="btn btn-primary" href="#">Ingresar</a>&nbsp;
+        <a class="btn btn-primary" href="#">Registrarse</a>
+    </div>
+</nav>

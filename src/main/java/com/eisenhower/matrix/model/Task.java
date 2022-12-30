@@ -1,38 +1,29 @@
 package com.eisenhower.matrix.model;
 
+/* 
+ * Note: Priority levels
+ * UI - Urgent, Important (1)
+ * NUI - Not Urgent, Important (2)
+ * UNI - Urgent, Not Important (3)
+ * NUNI - Not Urgent, Not Important (4)
+ * */
 public class Task {
-	private int idTask;
+
+	private Integer idTask;
+
 	private String taskName;
+
 	private String taskDescription;
+
 	private boolean taskDone;
 
-	// empty constructor
-	public Task() {
-		super();
-	}
+	private String priority;
 
-	// all arguments constructor
-	public Task(int idTask, String taskName, String taskDescription, boolean taskDone) {
-		super();
-		this.idTask = idTask;
-		this.taskName = taskName;
-		this.taskDescription = taskDescription;
-		this.taskDone = taskDone;
-	}
-
-	// no idTask constructor
-	public Task(String taskName, String taskDescription, boolean taskDone) {
-		super();
-		this.taskName = taskName;
-		this.taskDescription = taskDescription;
-		this.taskDone = taskDone;
-	}
-
-	public int getIdTask() {
+	public Integer getIdTask() {
 		return idTask;
 	}
 
-	public void setIdTask(int idTask) {
+	public void setIdTask(Integer idTask) {
 		this.idTask = idTask;
 	}
 
@@ -60,10 +51,18 @@ public class Task {
 		this.taskDone = taskDone;
 	}
 
+	public String getPriority() {
+		return priority;
+	}
+
+	public void setPriority(String priority) {
+		this.priority = priority;
+	}
+
 	@Override
 	public String toString() {
 		return "Task [idTask=" + idTask + ", taskName=" + taskName + ", taskDescription=" + taskDescription
-				+ ", taskDone=" + taskDone + "]";
+				+ ", taskDone=" + taskDone + ", priority=" + priority + "]";
 	}
 
 }

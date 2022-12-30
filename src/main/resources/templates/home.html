@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <!--Bootstrap CSS-->
+    <link th:href="@{/css/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!--Main CSS-->
+    <link th:href="@{/css/main-styles.css}" rel="stylesheet">
+    
+    <!-- Custom styles for this template HERE -->
+    <title th:text="${thePageTitle}"></title>
+</head>
+<body>
+<!-- header fragment
+Note: this is the new syntax for fragments ~{template :: fragment}-->
+<header th:insert="~{fragments/navbar.html :: navbar-principal}"></header>
+
+<div class="container">
+<h1>Matriz de Heinsenhower</h1>
+<p>
+La matriz de Heinsenhower es un método sencillo para clasificar o categorizar las tareas. 
+Este método nos ayudará a dejar la sensación de que toda actividad es urgente y necesaria.
+Esta matriz consiste en un mapa cartesiano en el que a cada cuadrante se le asigna un nivel de 
+importancia y urgencia. Si deseas conocer cómo funciona esta herramienta y leer un poco más de este método 
+haz click en el siguiente enlace para seguir leyendo <a href="#">Leer más...</a>
+</p>
+
+<div class="card w-75 bg-secondary text-white">
+	<div class="card-header">
+	<h2>Activity Check List</h2>
+	<a th:href="@{/tasks/form/new}" class="btn btn-success"><i>New</i></a>
+	</div>
+	<div class="card-body">
+		<table class="table table-hover">
+			<thead class="thead-light">
+				<tr>
+				<th>Id</th>
+				<th>Task</th>
+				<th>Priority</th>
+				<th>Actions</th>
+				</tr>
+			</thead>
+		<tbody>
+			<tr th:each="tempTaskList:${taskList}">
+				<td th:text="${tempTaskList.idTask}"></td>
+				<td th:text="${tempTaskList.taskName}"></td>
+				<td th:text="${tempTaskList.priority}"></td>
+				<td>
+				<!-- this button will triggered the modal -->
+				<button type="button" class="btn btn-info" data-toggle="modal" th:attr="data-target=${'#viewTask-modal'+tempTaskList.idTask}">View</button>
+				<a class="btn btn-warning"><i>Update</i></a>
+				<a class="btn btn-success"><i>Finished</i></a>
+				<a class="btn btn-danger"><i>Delete</i></a>
+				</td>
+			</tr>
+		</tbody>
+		</table>
+	</div>
+</div>
+</div>
+
+<!-- here starts the modal -->
+<div th:each="modalTask:${taskList}" th:attr="id=${'viewTask-modal'+modalTask.idTask}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 th:text="${modalTask.taskName}" class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<article th:utext="${modalTask.taskDescription}"></article>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- here ends the modal -->
+
+
+
+<!-- footer fragment -->
+<footer th:insert="~{fragments/footer.html :: footer-principal}" class="footer"></footer>
+<!-- Bootstrap JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script th:src="@{/js/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

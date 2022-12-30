@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <!--Bootstrap CSS-->
+    <link th:href="@{/css/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!--Main CSS-->
+    <link th:href="@{/css/main-styles.css}" rel="stylesheet">
+    <!-- Tinymce -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.3.1/tinymce.min.js"></script>
+    <!-- Custom styles for this template HERE -->
+    <script type="text/javascript">
+    	tinymce.init({selector:'#desc-textid'})
+    </script>
+    <title th:text="${tituloPagina}"></title>
+</head>
+<body>
+<!-- header fragment -->
+<header th:insert="~{fragments/navbar.html :: navbar-principal}"></header>
+
+<div class="container">
+<h1>Add new task</h1>
+<div class="form-container">
+	<form th:action="@{/tasks/form/new/save}" method="post">
+	<div class="mb-3">
+		<label for="taskname-id" class="form-label">Task name</label>
+		<input type="text" class="form-control" id="taskname-id" name="taskName" placeholder="task name here" required>
+		<!--  
+		this prop goes in the input where you want the text aria-describedby="taskname-desc"
+		<div id="taskname-desc" class="form-text">Put the name of your task</div>
+		-->
+	</div>
+	<div class="form-floating">
+		<label for="desc-textid">Task description</label>
+		<textarea class="form-control" placeholder="Describe your task" id="desc-textid" name="taskDescription"></textarea>
+	</div>
+	<div class="mb-3">
+		<label for="select-priority">Priority</label>
+		<br>
+		<select class="form-select" id="select-priority" name="priority" size="4">
+			<option selected value="UI">Urgent, Important</option>
+			<option value="NUI">Not Urgent, Important</option>
+			<option value="UNI">Urgent, Not Important</option>
+			<option value="NUNI">Not Urgent, Not Important</option>
+ 		</select>
+	</div>
+	<div>
+		<label for="select-taskDone">Task status</label>
+		<br>
+		<select class="form-select" id="select-taskDone" name="taskDone" disabled>
+  			<option selected value="false">False</option>
+		  	<option value="true">True</option>
+		</select>
+	</div>
+	<div class="action-buttons">
+	<button type="submit" class="btn btn-success">Add</button>
+	<a href="#" class="btn btn-danger"><i>Cancel</i></a>
+	</div>
+	
+	</form>
+</div>
+</div>
+
+
+
+
+
+
+<!-- footer fragment -->
+<footer th:insert="~{fragments/footer.html :: footer-principal}" class="footer"></footer>
+<!-- Bootstrap JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script th:src="@{/js/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
