@@ -10,14 +10,11 @@
     <link th:href="@{/css/bootstrap/bootstrap.min.css}" rel="stylesheet">
     <!--Main CSS-->
     <link th:href="@{/css/main-styles.css}" rel="stylesheet">
-    <!-- Tinymce -->
+     <!-- Tinymce -->
     <script th:src="@{/js/tinymce/tinymce.min.js}"></script>
-    <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.3.1/tinymce.min.js"></script>-->
-    <!-- Custom styles for this template HERE -->
+   <!-- Custom styles for this template HERE -->
     <script type="text/javascript">
-    	tinymce.init({
-    		selector:'#desc-textid'
-    	});
+    	tinymce.init({selector:'#desc-textid'})
     </script>
     <title th:text="${tituloPagina}"></title>
 </head>
@@ -28,11 +25,10 @@
 <div class="container">
 <h1>Add new task</h1>
 <div class="form-container">
-
 	<form th:action="@{/tasks/form/new/save}" method="post">
 	<div class="mb-3">
 		<label for="taskname-id" class="form-label">Task name</label>
-		<input type="text" class="form-control" id="taskname-id" name="taskName" placeholder="task name here" required>
+		<input type="text" class="form-control" id="taskname-id" name="taskName" th:value="${taskToBeUpdated.taskName}" required>
 		<!--  
 		this prop goes in the input where you want the text aria-describedby="taskname-desc"
 		<div id="taskname-desc" class="form-text">Put the name of your task</div>
@@ -40,16 +36,16 @@
 	</div>
 	<div class="form-floating">
 		<label for="desc-textid">Task description</label>
-		<textarea class="form-control" placeholder="Describe your task" id="desc-textid" name="taskDescription"></textarea>
+		<textarea class="form-control" th:text="${taskToBeUpdated.taskDescription}" id="desc-textid" name="taskDescription"></textarea>
 	</div>
 	<div class="mb-3">
 		<label for="select-priority">Priority</label>
 		<br>
-		<select class="form-select" id="select-priority" name="priority" size="4">
-			<option selected value="UI">Urgent, Important</option>
-			<option value="NUI">Not Urgent, Important</option>
-			<option value="UNI">Urgent, Not Important</option>
-			<option value="NUNI">Not Urgent, Not Important</option>
+		<select class="form-select"  th:field="*{taskToBeUpdated.priority}" id="select-priority" name="priority" size="4">
+			<option th:value="'UI'" th:text="${'Urgent, Important'}"></option>
+			<option th:value="'NUI'" th:text="${'Not Urgent, Important'}"></option>
+			<option th:value="'UNI'" th:text="${'Urgent, Not Important'}"></option>
+			<option th:value="'NUNI'" th:text="${'Not Urgent, Not Important'}"></option>
  		</select>
 	</div>
 	<div>
@@ -61,7 +57,7 @@
 		</select>
 	</div>
 	<div class="action-buttons">
-	<button type="submit" class="btn btn-success">Add</button>
+	<button type="submit" class="btn btn-warning">Add</button>
 	<a href="#" class="btn btn-danger"><i>Cancel</i></a>
 	</div>
 	
@@ -76,6 +72,5 @@
 <script th:src="@{/js/bootstrap/bootstrap.min.js}"></script>
 <!-- popper.js cdn -->
 <script src="https://unpkg.com/@popperjs/core@2"></script>
-
 </body>
 </html>

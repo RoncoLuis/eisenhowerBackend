@@ -7,7 +7,9 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
     <!--Bootstrap CSS-->
-    <link th:href="@{/css/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/bootstrap/bootstrap.min.css}" rel="stylesheet">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/d0e698f781.js" crossorigin="anonymous"></script>
     <!--Main CSS-->
     <link th:href="@{/css/main-styles.css}" rel="stylesheet">
     
@@ -32,7 +34,7 @@ haz click en el siguiente enlace para seguir leyendo <a href="#">Leer más...</a
 <div class="card w-75 bg-secondary text-white">
 	<div class="card-header">
 	<h2>Activity Check List</h2>
-	<a th:href="@{/tasks/form/new}" class="btn btn-success"><i>New</i></a>
+	<a th:href="@{/tasks/form/new}" class="btn btn-success"><i class="fa-solid fa-file-lines"></i> New</a>
 	</div>
 	<div class="card-body">
 		<table class="table table-hover">
@@ -51,10 +53,10 @@ haz click en el siguiente enlace para seguir leyendo <a href="#">Leer más...</a
 				<td th:text="${tempTaskList.priority}"></td>
 				<td>
 				<!-- this button will triggered the modal -->
-				<button type="button" class="btn btn-info" data-toggle="modal" th:attr="data-target=${'#viewTask-modal'+tempTaskList.idTask}">View</button>
-				<a class="btn btn-warning"><i>Update</i></a>
-				<a class="btn btn-success"><i>Finished</i></a>
-				<a class="btn btn-danger"><i>Delete</i></a>
+				<button type="button" class="btn btn-info" data-toggle="modal" th:attr="data-target=${'#viewTask-modal'+tempTaskList.idTask}"><i class="fa-solid fa-eye"></i> View</button>
+				<a th:href="@{/update/{id} (id=${tempTaskList.idTask})}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Update</a>
+				<a class="btn btn-success"><i class="fa-solid fa-check"></i> Finished</a>
+				<a class="btn btn-danger"><i class="fa-solid fa-trash"></i> Delete</a>
 				</td>
 			</tr>
 		</tbody>
@@ -89,7 +91,9 @@ haz click en el siguiente enlace para seguir leyendo <a href="#">Leer más...</a
 <!-- footer fragment -->
 <footer th:insert="~{fragments/footer.html :: footer-principal}" class="footer"></footer>
 <!-- Bootstrap JavaScript -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script th:src="@{/js/bootstrap/js/bootstrap.min.js}"></script>
+<!--  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>-->
+<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script th:src="@{/js/bootstrap/bootstrap.min.js}"></script>
 </body>
 </html>

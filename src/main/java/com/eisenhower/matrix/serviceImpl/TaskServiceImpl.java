@@ -16,9 +16,9 @@ public class TaskServiceImpl implements ITaskService {
 	// create
 	@Override
 	public String createTask(Task task) {
-		System.out.println("this is your task:" + task.toString());
+		System.out.println(task.toString());
 		taskList.add(task);
-		return "Tarea agregada a la lista";
+		return "Task added to the list";
 	}
 
 	// read (find all)
