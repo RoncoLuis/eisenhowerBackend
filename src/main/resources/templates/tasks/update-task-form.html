@@ -25,10 +25,11 @@
 <div class="container">
 <h1>Add new task</h1>
 <div class="form-container">
-	<form th:action="@{/tasks/form/new/save}" method="post">
+	<form th:action="@{/update/task}" method="post">
 	<div class="mb-3">
 		<label for="taskname-id" class="form-label">Task name</label>
 		<input type="text" class="form-control" id="taskname-id" name="taskName" th:value="${taskToBeUpdated.taskName}" required>
+		<input type="hidden" th:value="${taskToBeUpdated.idTask}" name="idTask" disabled>
 		<!--  
 		this prop goes in the input where you want the text aria-describedby="taskname-desc"
 		<div id="taskname-desc" class="form-text">Put the name of your task</div>
@@ -57,7 +58,7 @@
 		</select>
 	</div>
 	<div class="action-buttons">
-	<button type="submit" class="btn btn-warning">Add</button>
+	<button type="submit" class="btn btn-warning">Update</button>
 	<a href="#" class="btn btn-danger"><i>Cancel</i></a>
 	</div>
 	
