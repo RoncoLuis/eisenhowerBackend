@@ -1,9 +1,9 @@
 package com.eisenhower.matrix.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.eisenhower.matrix.model.Task;
 import com.eisenhower.matrix.services.ITaskService;
-import com.eisenhower.matrix.util.Constants;
 
 @CrossOrigin(origins = { "http://localhost:4200" })
 @RequestMapping("/task")
@@ -32,11 +31,13 @@ public class TaskController {
 		return "redirect:/";
 	}
 
-	@GetMapping("/update")
+	@PostMapping("/update/{id}")
 	//@RequestParam(name = "id") int idVacante
-	public String updatedTask(@ModelAttribute Task theUpdatedTask) {
-		System.out.println(theUpdatedTask.getIdTask());
+	public String updatedTask(@PathVariable("id") String taskId,
+							  @ModelAttribute Task theUpdatedTask, Model theModel) {
+		theUpdatedTask.setIdTask(Integer.parseInt(taskId));
 		taskService.updateTask(theUpdatedTask);
+		theModel.addAttribute("taskList", taskService.findAll());
 		return "redirect:/";
 	}
 
@@ -46,13 +47,6 @@ public class TaskController {
 		return taskService.findTaskById(id);
 	}
 
-	/*
-	 * // update task
-	 * 
-	 * @PostMapping("/update") public String updateTask(@ModelAttribute Task
-	 * theUpdatedTask) { return taskService.updateTask(theUpdatedTask); }
-	 */
-	
 	// delete task
 	@PostMapping("/delete")
 	public String deleteTask(@RequestParam("id") Integer id) {

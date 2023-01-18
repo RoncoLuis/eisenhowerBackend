@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import com.eisenhower.matrix.model.Task;
 import com.eisenhower.matrix.services.ITaskService;
@@ -34,9 +33,11 @@ public class HomeController {
 		return Constants.CREATE_NEW_TASK_FORM;
 	}
 
+	//route to edit task
 	@GetMapping("/update/{id}")
 	public String updateTaskPage(@PathVariable("id") Integer id, Model theModel) {
 		Task taskToBeUpdated = taskService.findTaskById(id);
+		System.out.println("Found object:"+ taskToBeUpdated.toString());
 		theModel.addAttribute("taskToBeUpdated", taskToBeUpdated);
 
 		return Constants.UPDATE_TASK_FORM;
