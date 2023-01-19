@@ -53,7 +53,7 @@ haz click en el siguiente enlace para seguir leyendo <a href="#">Leer más...</a
 				<td th:text="${tempTaskList.priority}"></td>
 				<td>
 				<!-- this button will triggered the modal -->
-				<button type="button" class="btn btn-info" data-toggle="modal" th:attr="data-target=${'#viewTask-modal'+tempTaskList.idTask}"><i class="fa-solid fa-eye"></i> View</button>
+				<button type="button" class="btn btn-info" data-bs-toggle="modal" th:attr="data-bs-target=${'#viewTask-modal'+tempTaskList.idTask}"><i class="fa-solid fa-eye"></i> View</button>
 				<a th:href="@{/update/{id} (id=${tempTaskList.idTask})}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Update</a>
 				<a class="btn btn-success"><i class="fa-solid fa-check"></i> Finished</a>
 				<a class="btn btn-danger"><i class="fa-solid fa-trash"></i> Delete</a>
@@ -71,15 +71,13 @@ haz click en el siguiente enlace para seguir leyendo <a href="#">Leer más...</a
     <div class="modal-content">
       <div class="modal-header">
         <h5 th:text="${modalTask.taskName}" class="modal-title" id="exampleModalLabel"></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
       	<article th:utext="${modalTask.taskDescription}"></article>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
