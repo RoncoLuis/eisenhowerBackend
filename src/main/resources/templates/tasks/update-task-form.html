@@ -52,8 +52,8 @@
 	<div>
 		<label for="select-taskDone">Task status</label>
 		<br>
-		<select class="form-select" id="select-taskDone" name="taskDone" disabled>
-  			<option selected value="false">False</option>
+		<select class="form-select" id="select-taskDone" th:field="${taskToBeUpdated.taskDone}" name="taskDone" disabled>
+  			<option value="false">False</option>
 		  	<option value="true">True</option>
 		</select>
 	</div>

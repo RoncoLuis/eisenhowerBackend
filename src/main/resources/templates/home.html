@@ -22,13 +22,13 @@ Note: this is the new syntax for fragments ~{template :: fragment}-->
 <header th:insert="~{fragments/navbar.html :: navbar-principal}"></header>
 
 <div class="container">
-<h1>Matriz de Heinsenhower</h1>
+<h1>Heinsenhower matrix</h1>
 <p>
-La matriz de Heinsenhower es un método sencillo para clasificar o categorizar las tareas. 
-Este método nos ayudará a dejar la sensación de que toda actividad es urgente y necesaria.
-Esta matriz consiste en un mapa cartesiano en el que a cada cuadrante se le asigna un nivel de 
-importancia y urgencia. Si deseas conocer cómo funciona esta herramienta y leer un poco más de este método 
-haz click en el siguiente enlace para seguir leyendo <a href="#">Leer más...</a>
+	The Heinsenhower matrix is a simple method to classify or categorize tasks.
+	This method will help us let go of the feeling that every activity is urgent and necessary.
+	This matrix consists of a cartesian map in which each quadrant is assigned a level of importance and urgency.
+	If you want to know more about the Heinsenhower matrix and how this tool works,
+	read the complete article here. <a href="#">read more...</a>
 </p>
 
 <div class="card w-75 bg-secondary text-white">
@@ -47,16 +47,16 @@ haz click en el siguiente enlace para seguir leyendo <a href="#">Leer más...</a
 				</tr>
 			</thead>
 		<tbody>
-			<tr th:each="tempTaskList:${taskList}">
+			<tr th:each="tempTaskList:${taskList}" th:if="${tempTaskList.taskDone == false}">
 				<td th:text="${tempTaskList.idTask}"></td>
 				<td th:text="${tempTaskList.taskName}"></td>
 				<td th:text="${tempTaskList.priority}"></td>
 				<td>
-				<!-- this button will triggered the modal -->
+				<!-- this button will trigger the modal -->
 				<button type="button" class="btn btn-info" data-bs-toggle="modal" th:attr="data-bs-target=${'#viewTask-modal'+tempTaskList.idTask}"><i class="fa-solid fa-eye"></i> View</button>
 				<a th:href="@{/update/{id} (id=${tempTaskList.idTask})}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Update</a>
-				<a class="btn btn-success"><i class="fa-solid fa-check"></i> Finished</a>
-				<a class="btn btn-danger"><i class="fa-solid fa-trash"></i> Delete</a>
+				<a th:href="@{/task/finished/{id} (id=${tempTaskList.idTask})}" class="btn btn-success"><i class="fa-solid fa-check"></i> Finished</a>
+				<a th:href="@{/task/delete/{id} (id=${tempTaskList.idTask})}" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Delete</a>
 				</td>
 			</tr>
 		</tbody>

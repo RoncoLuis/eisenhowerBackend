@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.eisenhower.matrix.model.Task;
 import com.eisenhower.matrix.services.ITaskService;
 
-@CrossOrigin(origins = { "http://localhost:4200" })
-@RequestMapping("/task")
+//@CrossOrigin(origins = { "http://localhost:4200" })
 //@RestController
+@RequestMapping("/task")
 @Controller
 public class TaskController {
 
@@ -48,15 +48,18 @@ public class TaskController {
 	}
 
 	// delete task
-	@PostMapping("/delete")
-	public String deleteTask(@RequestParam("id") Integer id) {
-		return taskService.deleteTask(id);
+	@GetMapping("/delete/{id}")
+	public String deleteTask(@PathVariable("id") Integer id) {
+
+		taskService.deleteTask(id);
+		return "redirect:/";
 	}
 
 	// update task status
 	@GetMapping("/finished/{id}")
 	public String taskFinished(@PathVariable("id") Integer id) {
-		return taskService.isTaskDone(id);
+		taskService.isTaskDone(id);
+		return "redirect:/";
 	}
 
 	// service to simulate the task id auto_increment
