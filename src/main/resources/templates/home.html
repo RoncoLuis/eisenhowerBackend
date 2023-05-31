@@ -22,19 +22,20 @@ Note: this is the new syntax for fragments ~{template :: fragment}-->
 <header th:insert="~{fragments/navbar.html :: navbar-principal}"></header>
 
 <div class="container">
-<h1>Heinsenhower matrix</h1>
+<h1>Eisenhower matrix</h1>
 <p>
-	The Heinsenhower matrix is a simple method to classify or categorize tasks.
+	The Eisenhower matrix is a simple method to classify or categorize tasks.
 	This method will help us let go of the feeling that every activity is urgent and necessary.
 	This matrix consists of a cartesian map in which each quadrant is assigned a level of importance and urgency.
-	If you want to know more about the Heinsenhower matrix and how this tool works,
+	If you want to know more about the Eisenhower matrix and how this tool works,
 	read the complete article here. <a href="#">read more...</a>
 </p>
 
 <div class="card w-75 bg-secondary text-white">
 	<div class="card-header">
 	<h2>Activity Check List</h2>
-	<a th:href="@{/createnew}" class="btn btn-success"><i class="fa-solid fa-file-lines"></i> New</a>
+	<a th:href="@{/createnew}" class="btn btn-success"><i class="fa-solid fa-file-lines"></i> New item</a>
+	<a th:href="@{/matrix/list-items}" class="btn btn-primary"><i class="far fa-chart-bar"></i> Graph</a>
 	</div>
 	<div class="card-body">
 		<table class="table table-hover">
