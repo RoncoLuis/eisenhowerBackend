@@ -27,6 +27,9 @@ public class TaskController {
 	@PostMapping("/save")
 	public String newTask(@ModelAttribute Task theNewtask) {
 		theNewtask.setIdTask(autoIncrementTaskId());
+		if(theNewtask.getTaskDescription() == ""){
+			theNewtask.setTaskDescription("-- No comments added --");
+		}
 		taskService.createTask(theNewtask);
 		return "redirect:/";
 	}
