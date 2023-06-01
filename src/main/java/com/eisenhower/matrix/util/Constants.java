@@ -1,7 +1,7 @@
 package com.eisenhower.matrix.util;
 
 public final class Constants {
-	private Constants() {};
+	private Constants() {}
 	
 	public static final String thePageTitle = "MHeinsenhower";
 	public static final String thePageAutor = "Luis Ronquillo";
