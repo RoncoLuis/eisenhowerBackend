@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <!--Bootstrap CSS-->
+    <link th:href="@{/css/bootstrap/bootstrap.min.css}" rel="stylesheet">
+    <!--Main CSS-->
+    <link th:href="@{/css/main-styles.css}" rel="stylesheet">
+    <!-- Custom styles for this template HERE -->
+    <title th:text="${tituloPagina}"></title>
+    <style>
+        .quadrant {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<!-- header fragment -->
+<header th:insert="~{fragments/navbar.html :: navbar-principal}"></header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="quadrant">
+                <h2>Important & Urgent</h2>
+                <ul th:each="tempList:${taskList}" th:if="${tempList.taskDone == false and tempList.priority == 'UI'}">
+                    <li th:text="${tempList.taskName}"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="quadrant">
+                <h2>Important & Not Urgent</h2>
+                <ul th:each="tempList:${taskList}" th:if="${tempList.taskDone == false and tempList.priority == 'NUI'}">
+                    <li th:text="${tempList.taskName}"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="quadrant">
+                <h2>Not Important & Urgent</h2>
+                <ul th:each="tempList:${taskList}" th:if="${tempList.taskDone == false and tempList.priority == 'UNI'}">
+                    <li th:text="${tempList.taskName}"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="quadrant">
+                <h2>Not Important & Not Urgent</h2>
+                <ul th:each="tempList:${taskList}" th:if="${tempList.taskDone == false and tempList.priority == 'NUNI'}">
+                    <li th:text="${tempList.taskName}"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer fragment -->
+<footer th:insert="~{fragments/footer.html :: footer-principal}" class="footer"></footer>
+<!-- Bootstrap JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script th:src="@{/js/bootstrap/bootstrap.min.js}"></script>
+</body>
+</html>
