@@ -1,44 +1,122 @@
 <!-- navbar -->
-<nav th:fragment="navbar-principal" class="nav navbar navbar-expand-md navbar-dark">
-    <a class="navbar-brand" th:href="@{/}">LR21</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<nav th:fragment="navbar-principal">
+    <div class="sidebar-top">
+            <span class="shrink-btn">
+        <i class='bx bx-chevron-left'></i>
+      </span>
+        <img th:src="@{/images/faang-logo/java.png}" class="logo" alt="">
+        <h3 class="hide"><a class="nav-link active" th:href="@{/}">LR21</a></h3>
+    </div>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link active" th:href="@{/}">Inicio</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownVacante" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Vacantes
+    <div class="search">
+        <i class='bx bx-search'></i>
+        <input type="text" class="hide" placeholder="Quick Search ...">
+    </div>
+
+    <div class="sidebar-links">
+        <ul>
+            <div class="active-tab"></div>
+            <li class="tooltip-element" data-tooltip="0">
+                <a href="#" class="active" data-active="0">
+                    <div class="icon">
+                        <i class='bx bx-tachometer'></i>
+                        <i class='bx bxs-tachometer'></i>
+                    </div>
+                    <span class="link hide">Dashboard</span>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownVacante">
-                    <a class="dropdown-item" th:href="@{/vacantes/crear-vacante}">Crear Vacante</a>
-                    <a class="dropdown-item" th:href="@{/lista-vacantes}">Listar Vacantes</a>
-                </div>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategoria" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Categorias
+            <li class="tooltip-element" data-tooltip="1">
+                <a href="#" data-active="1">
+                    <div class="icon">
+                        <i class='bx bx-folder'></i>
+                        <i class='bx bxs-folder'></i>
+                    </div>
+                    <span class="link hide">Projects</span>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownCategoria">
-                    <a class="dropdown-item" th:href="@{/categoria/create}">Crear Categoria</a>
-                    <a class="dropdown-item" th:href="@{/categoria/index}">Listar Categorias</a>
-                </div>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownReclutador" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Reclutadores
+            <li class="tooltip-element" data-tooltip="2">
+                <a href="#" data-active="2">
+                    <div class="icon">
+                        <i class='bx bx-message-square-detail'></i>
+                        <i class='bx bxs-message-square-detail'></i>
+                    </div>
+                    <span class="link hide">Messages</span>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownReclutador">
-                    <a class="dropdown-item" th:href="@{/}">Crear Reclutador</a>
-                    <a class="dropdown-item" th:href="@{/nuestros-reclutadores}">Listar Reclutadores</a>
-                </div>
             </li>
+            <li class="tooltip-element" data-tooltip="3">
+                <a href="#" data-active="3">
+                    <div class="icon">
+                        <i class='bx bx-bar-chart-square'></i>
+                        <i class='bx bxs-bar-chart-square'></i>
+                    </div>
+                    <span class="link hide">Analytics</span>
+                </a>
+            </li>
+            <div class="tooltip">
+                <span class="show">Dashboard</span>
+                <span>Projects</span>
+                <span>Messages</span>
+                <span>Analytics</span>
+            </div>
         </ul>
-        <a class="btn btn-primary" href="#">Ingresar</a>&nbsp;
-        <a class="btn btn-primary" href="#">Registrarse</a>
+
+        <h4 class="hide">Shortcuts</h4>
+
+        <ul>
+            <li class="tooltip-element" data-tooltip="0">
+                <a href="#" data-active="4">
+                    <div class="icon">
+                        <i class='bx bx-notepad'></i>
+                        <i class='bx bxs-notepad'></i>
+                    </div>
+                    <span class="link hide">Add tasks</span>
+                </a>
+            </li>
+            <li class="tooltip-element" data-tooltip="1">
+                <a href="#" data-active="5">
+                    <div class="icon">
+                        <i class='bx bx-help-circle'></i>
+                        <i class='bx bxs-help-circle'></i>
+                    </div>
+                    <span class="link hide">Home</span>
+                </a>
+            </li>
+            <li class="tooltip-element" data-tooltip="2">
+                <a href="#" data-active="6">
+                    <div class="icon">
+                        <i class='bx bx-cog'></i>
+                        <i class='bx bxs-cog'></i>
+                    </div>
+                    <span class="link hide">Graph</span>
+                </a>
+            </li>
+            <div class="tooltip">
+                <span class="show">Tasks</span>
+                <span>Help</span>
+                <span>Settings</span>
+            </div>
+        </ul>
+    </div>
+
+    <div class="sidebar-footer">
+        <a href="#" class="account tooltip-element" data-tooltip="0">
+            <i class='bx bx-user'></i>
+        </a>
+        <div class="admin-user tooltip-element" data-tooltip="1">
+            <div class="admin-profile hide">
+                <img src="https://i.imgur.com/uYtub6O.jpg" alt="">
+                <div class="admin-info">
+                    <h3>Michio JP</h3>
+                    <h5>Admin</h5>
+                </div>
+            </div>
+            <a href="#" class="log-out">
+                <i class='bx bx-log-out'></i>
+            </a>
+        </div>
+        <div class="tooltip">
+            <span class="show">John Doe</span>
+            <span>Logout</span>
+        </div>
     </div>
 </nav>
