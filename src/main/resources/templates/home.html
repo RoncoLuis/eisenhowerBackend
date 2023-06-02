@@ -12,7 +12,10 @@
     <script src="https://kit.fontawesome.com/d0e698f781.js" crossorigin="anonymous"></script>
     <!--Main CSS-->
     <link th:href="@{/css/main-styles.css}" rel="stylesheet">
-    
+	<!-- new navbar-->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link th:href="@{/css/dashboard-css.css}" rel="stylesheet">
+
     <!-- Custom styles for this template HERE -->
     <title th:text="${thePageTitle}"></title>
 </head>
@@ -34,8 +37,8 @@ Note: this is the new syntax for fragments ~{template :: fragment}-->
 <div class="card w-75 bg-secondary text-white">
 	<div class="card-header">
 	<h2>Activity Check List</h2>
-	<a th:href="@{/createnew}" class="btn btn-success"><i class="fa-solid fa-file-lines"></i> New item</a>
-	<a th:href="@{/matrix/list-items}" class="btn btn-primary"><i class="far fa-chart-bar"></i> Graph</a>
+	<a th:href="@{/createnew}" class="btn btn-success"><i class="fa-solid fa-file-lines"></i> New task</a>
+	<a th:href="@{/matrix/list-items}" class="btn btn-primary"><i class="far fa-chart-bar"></i> Graph tasks</a>
 	</div>
 	<div class="card-body">
 		<table class="table table-hover">
@@ -82,11 +85,7 @@ Note: this is the new syntax for fragments ~{template :: fragment}-->
       </div>
     </div>
   </div>
-</div>
-<!-- here ends the modal -->
-
-
-
+</div><!-- here ends the modal -->
 <!-- footer fragment -->
 <footer th:insert="~{fragments/footer.html :: footer-principal}" class="footer"></footer>
 <!-- Bootstrap JavaScript -->
@@ -94,5 +93,7 @@ Note: this is the new syntax for fragments ~{template :: fragment}-->
 <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script th:src="@{/js/bootstrap/bootstrap.min.js}"></script>
+<!-- new navbar js-->
+<script th:src="@{/js/dashboard.js}"></script>
 </body>
 </html>

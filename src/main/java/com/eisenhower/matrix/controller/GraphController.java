@@ -17,6 +17,8 @@ public class GraphController {
     @GetMapping("/list-items")
     public String getTaskItems(Model theModel){
         theModel.addAttribute("taskList", taskService.findAll());
+        theModel.addAttribute("thePageTitle", Constants.thePageTitle);
+        theModel.addAttribute("theAutor", Constants.thePageAutor);
         return Constants.EISENHOWER_PAGE;
     }
 }

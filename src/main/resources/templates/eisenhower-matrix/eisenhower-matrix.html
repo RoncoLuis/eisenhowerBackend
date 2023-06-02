@@ -10,6 +10,9 @@
     <link th:href="@{/css/bootstrap/bootstrap.min.css}" rel="stylesheet">
     <!--Main CSS-->
     <link th:href="@{/css/main-styles.css}" rel="stylesheet">
+    <!-- new navbar-->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link th:href="@{/css/dashboard-css.css}" rel="stylesheet">
     <!-- Custom styles for this template HERE -->
     <title th:text="${tituloPagina}"></title>
     <style>
@@ -60,11 +63,13 @@
         </div>
     </div>
 </div>
-
 <!-- footer fragment -->
 <footer th:insert="~{fragments/footer.html :: footer-principal}" class="footer"></footer>
+
 <!-- Bootstrap JavaScript -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script th:src="@{/js/bootstrap/bootstrap.min.js}"></script>
+<!-- new navbar js-->
+<script th:src="@{/js/dashboard.js}"></script>
 </body>
 </html>
