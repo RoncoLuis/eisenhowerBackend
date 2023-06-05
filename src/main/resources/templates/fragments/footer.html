@@ -1,6 +1,16 @@
-<div th:fragment="footer-principal"  class="">
+<!--<div th:fragment="footer-principal"  class="">
     <p class="text-white my-2">
         &copy; [[${thePageTitle}]], Inc. | Developed with Spring Boot & Thymeleaf  | Autor: [[${theAutor}]] | &middot; <a th:href="@{/}">Privacy</a>
         &middot; <a href="#">Terms</a>
     </p>
+</div>-->
+<div class="col d-flex flex-column h-sm-100" th:fragment="footer-principal">
+    <footer class="row py-4 mt-auto">
+        <div class="col">
+            <p class="text-white my-2">
+                &copy; [[${thePageTitle}]], Inc. | Developed with Spring Boot & Thymeleaf  | Autor: [[${theAutor}]] | &middot; <a th:href="@{/}">Privacy</a>
+                &middot; <a href="#">Terms</a>
+            </p>
+        </div>
+    </footer>
 </div>
