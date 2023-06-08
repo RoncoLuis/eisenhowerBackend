@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <!--Bootstrap CSS-->
+    <link th:href="@{/css/bootstrap/bootstrap.min.css}" rel="stylesheet">
+    <!--Main CSS-->
+    <link th:href="@{/css/main-styles.css}" rel="stylesheet">
+    <!-- new navbar-->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link th:href="@{/css/dashboard-css.css}" rel="stylesheet">
+    <!-- Custom styles for this template HERE -->
+    <title th:text="${tituloPagina}"></title>
+</head>
+<body>
+<!-- header fragment -->
+<header th:insert="~{fragments/navbar.html :: navbar-principal}"></header>
+
+<div class="container">
+    <article>
+        <h1>Mastering Productivity with the Eisenhower Matrix: A Time Management Strategy</h1>
+        <h2>Introduction:</h2>
+        <p>In a world filled with numerous tasks and responsibilities, managing our time effectively has become more crucial than ever.
+            The Eisenhower Matrix, also known as the Urgent-Important Matrix, is a powerful time management tool that helps individuals
+            prioritize their tasks and make better decisions about how to allocate their time.
+            In this blog post, we will explore the concept of the Eisenhower Matrix and provide practical tips for implementing it
+            in your daily life to enhance productivity and achieve better outcomes.</p>
+
+        <h2>Understanding the Eisenhower Matrix:</h2>
+        <p>
+            The Eisenhower Matrix is a visual representation of a four-quadrant grid that categorizes tasks based on their urgency and importance.
+            It was popularized by the 34th President of the United States, Dwight D. Eisenhower, who was known for his exceptional productivity
+            and ability to make effective decisions.
+            The matrix provides a systematic approach to evaluating tasks and determining the appropriate actions to take. </p>
+
+        <h3>Quadrant 1: Urgent and Important (Do First):</h3>
+
+        Tasks falling into this quadrant are both urgent and important and require immediate attention. These tasks often have deadlines or are critical for achieving your goals. Examples include meeting urgent client requests, handling emergencies, or completing time-sensitive projects. It is crucial to address these tasks promptly to avoid negative consequences and maintain control over your workload.
+
+            <h3>Quadrant 2: Not Urgent but Important (Schedule):</h3>
+            Quadrant 2 represents tasks that are important but not urgent. These tasks contribute significantly to your long-term goals, personal
+            growth, and overall success. Examples include strategic planning, skill development, building relationships, and working on long-term
+            projects.
+            Allocating time to quadrant 2 tasks helps prevent them from becoming urgent and allows you to focus on activities that truly
+            matter in the long run.
+
+            <h3>Quadrant 3: Urgent but Not Important (Delegate):</h3>
+            Tasks falling into quadrant 3 are urgent but not important in the grand scheme of things.
+            These tasks often involve interruptions, distractions, or requests from others that do not align with your priorities.
+            Examples include attending unnecessary meetings, responding to non-essential emails, or handling minor administrative tasks.
+            Whenever possible, delegate or eliminate these tasks to free up time for more meaningful work.
+
+            <h3>Quadrant 4: Not Urgent and Not Important (Eliminate):</h3>
+            Quadrant 4 consists of tasks that are neither urgent nor important.
+            These tasks are time-wasters and provide little to no value in terms of productivity or personal growth.
+            Examples include mindless scrolling on social media, excessive television watching, or engaging in unproductive gossip. It is crucial to minimize or eliminate these activities to reclaim valuable time that can be better utilized elsewhere.
+
+       <h2>Implementing the Eisenhower Matrix:</h2>
+        <ul>
+            <li>List your tasks: Start by listing all the tasks you need to complete, whether they are work-related or personal. Brainstorm and capture everything that comes to mind.</li>
+            <li>Assess urgency and importance: Evaluate each task and determine its urgency and importance. Ask yourself, "Is this task time-sensitive?" and "Does this task align with my long-term goals?"</li>
+            <li>Categorize tasks: Place each task in the appropriate quadrant of the matrix based on its urgency and importance. This visual representation will provide a clear overview of your priorities.</li>
+            <li>Prioritize Quadrant 1: Begin by tackling tasks in quadrant 1, focusing on urgent and important activities that require immediate attention.</li>
+            <li>Schedule Quadrant 2 tasks: Allocate dedicated time in your schedule for quadrant 2 tasks, ensuring they receive the attention they deserve. Regularly review and update your schedule to accommodate these important activities.</li>
+            <li>Delegate or eliminate Quadrant 3 and 4 tasks: Identify tasks in quadrant 3 that can be delegated to others, freeing up your time for more critical work. Additionally, consciously eliminate quadrant</li>
+        </ul>
+
+    </article>
+
+</div>
+
+
+
+
+
+<!-- footer fragment -->
+<footer th:insert="~{fragments/footer.html :: footer-principal}" class="footer"></footer>
+<!-- Bootstrap JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script th:src="@{/js/bootstrap/bootstrap.min.js}"></script>
+<!-- new navbar js-->
+<script th:src="@{/js/dashboard.js}"></script>
+</body>
+</html>
